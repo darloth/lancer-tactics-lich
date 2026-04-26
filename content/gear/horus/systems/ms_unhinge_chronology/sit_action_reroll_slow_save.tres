@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://c1bqwe701322a"]
+
+[ext_resource type="Script" path="res://engine/character/buff/buff.gd" id="1_5016h"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_unhinge_chronology/buff_slow.tres" id="2_u2daw"]
+[ext_resource type="Script" path="res://content/gear/horus/systems/ms_unhinge_chronology/sit_action_reroll_slow_save.gd" id="3_gqium"]
+
+[resource]
+script = ExtResource("3_gqium")
+clear_buffs = Array[ExtResource("1_5016h")]([ExtResource("2_u2daw")])
+make_save_type = 2
+action_type = 1
+is_situationally_activated = true
+metadata/_custom_type_script = "uid://cvvlk0g0af1lk"

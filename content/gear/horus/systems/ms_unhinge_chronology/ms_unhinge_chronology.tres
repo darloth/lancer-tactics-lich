@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Kit" format=3 uid="uid://feuqshlnlfnr"]
+
+[ext_resource type="Script" path="res://engine/character/gear_action/action.gd" id="1_f52hb"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_unhinge_chronology/action_haste.tres" id="2_ow6fy"]
+[ext_resource type="Script" path="res://engine/character/gear_passive/passive.gd" id="2_yj0uk"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_unhinge_chronology/action_slow.tres" id="3_gj0la"]
+[ext_resource type="Script" path="res://engine/character/gear/kit.gd" id="3_ow6fy"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_unhinge_chronology/sit_action_reroll_slow_save.tres" id="4_gj0la"]
+
+[resource]
+script = ExtResource("3_ow6fy")
+actions = Array[ExtResource("1_f52hb")]([ExtResource("2_ow6fy"), ExtResource("3_gj0la"), ExtResource("4_gj0la")])
+sp_cost = 2
+metadata/_custom_type_script = "uid://ckrv6mvs5q65e"

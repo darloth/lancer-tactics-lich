@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Kit" format=3 uid="uid://cn2ss0tq6epuw"]
+
+[ext_resource type="Script" path="res://engine/character/gear_action/action.gd" id="1_tb551"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_wandering_nightmare/deployable/dep_wandering_nightmare.tres" id="2_qwea6"]
+[ext_resource type="Script" path="res://engine/character/gear_passive/passive.gd" id="2_u1xfa"]
+[ext_resource type="Script" path="res://engine/character/gear_action/archtypes/action_system_deploy.gd" id="3_l1mpy"]
+[ext_resource type="Script" path="res://engine/character/gear/kit.gd" id="3_qwea6"]
+[ext_resource type="Script" path="res://engine/character/gear_action/resources/range_pattern.gd" id="4_bnky3"]
+[ext_resource type="Script" path="res://engine/character/gear_action/resources/target_requirements.gd" id="5_iffei"]
+
+[sub_resource type="Resource" id="Resource_kum1a"]
+script = ExtResource("4_bnky3")
+pattern = 4
+value = 2
+metadata/_custom_type_script = "uid://c0yv6pnw2be6l"
+
+[sub_resource type="Resource" id="Resource_5arx4"]
+script = ExtResource("5_iffei")
+range_pattern = SubResource("Resource_kum1a")
+preview_size = 2
+can_target_empty_tiles = true
+can_target_setpieces = true
+aoe_is_just_for_show = true
+metadata/_custom_type_script = "uid://df1yicp7kbf3x"
+
+[sub_resource type="Resource" id="Resource_bnky3"]
+script = ExtResource("3_l1mpy")
+deployable_frame = ExtResource("2_qwea6")
+deploy_to_sensors = true
+remove_previous_deployments = true
+action_type = 2
+is_tech = true
+target_requirements_override = SubResource("Resource_5arx4")
+metadata/_custom_type_script = "uid://2wdyuf507vdl"
+
+[resource]
+script = ExtResource("3_qwea6")
+actions = Array[ExtResource("1_tb551")]([SubResource("Resource_bnky3")])
+sp_cost = 1
+metadata/_custom_type_script = "uid://ckrv6mvs5q65e"

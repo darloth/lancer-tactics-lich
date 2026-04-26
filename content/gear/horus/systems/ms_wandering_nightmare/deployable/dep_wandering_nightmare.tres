@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Frame" format=3 uid="uid://mlbmacexh2o4"]
+
+[ext_resource type="Script" path="res://engine/character/gear/kit.gd" id="1_dhhl1"]
+[ext_resource type="Script" path="res://engine/character/unit_core/frame.gd" id="2_y23t6"]
+[ext_resource type="Texture2D" path="res://assets/frames/shared/blank.png" id="3_dc1dq"]
+[ext_resource type="Resource" path="res://content/gear/shared/statblock_zero.tres" id="4_b378p"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_wandering_nightmare/deployable/mt_wandering_nightmare.tres" id="5_4a0v3"]
+
+[resource]
+script = ExtResource("2_y23t6")
+sprites = Array[Texture2D]([ExtResource("3_dc1dq")])
+traits = Array[ExtResource("1_dhhl1")]([ExtResource("5_4a0v3")])
+stat = ExtResource("4_b378p")
+entity_type = 2
+is_obstruction = false
+is_deactivated_on_owner_death = false
+metadata/_custom_type_script = "uid://daycu0mqh1rbq"

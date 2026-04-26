@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://dbilv2u1if5pq"]
+
+[ext_resource type="Script" path="res://content/gear/horus/systems/ms_wandering_nightmare/deployable/action_wandering_nightmare_heat_and_slowed.gd" id="1_ghysi"]
+
+[resource]
+script = ExtResource("1_ghysi")
+triggers_on_coming_within_range = 2
+when_enter_within = false
+when_start_turn_within = true
+can_trigger_any_number_of_times_per_round = true
+triggers_on = Array[int]([10])
+consumes_rxn = false
+metadata/_custom_type_script = "uid://b02wj446sjmw7"

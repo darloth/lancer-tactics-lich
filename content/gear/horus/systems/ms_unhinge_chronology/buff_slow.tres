@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://ckajhnyf5bpqf"]
+
+[ext_resource type="Script" path="res://content/gear/horus/systems/ms_unhinge_chronology/buff_slow.gd" id="1_vhv24"]
+
+[resource]
+script = ExtResource("1_vhv24")
+to = 20
+applies_statuses = Array[int]([2])
+triggers_on = Array[int]([3])
+log_on_application = true
+metadata/_custom_type_script = "uid://cqrqkdgcf8mti"

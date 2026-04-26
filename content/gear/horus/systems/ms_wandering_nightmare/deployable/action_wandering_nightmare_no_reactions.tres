@@ -1,0 +1,16 @@
+[gd_resource type="Resource" format=3 uid="uid://celx0h5q4v5iq"]
+
+[ext_resource type="Script" path="res://engine/character/buff/buff.gd" id="1_l06b5"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_wandering_nightmare/deployable/buff_wandering_nightmare_no_reactions.tres" id="2_fxe3n"]
+[ext_resource type="Script" path="res://content/gear/horus/systems/ms_wandering_nightmare/deployable/action_wandering_nightmare_no_reactions.gd" id="3_n88v0"]
+
+[resource]
+script = ExtResource("3_n88v0")
+buffs = Array[ExtResource("1_l06b5")]([ExtResource("2_fxe3n")])
+aura_range = 2
+applies_to_self = false
+applies_to_other_copies_of_this_frame = false
+duplicates_keyed_to_gear = false
+triggers_on = Array[int]([0, 7, 12])
+consumes_rxn = false
+metadata/_custom_type_script = "uid://dni8ej00bxms0"

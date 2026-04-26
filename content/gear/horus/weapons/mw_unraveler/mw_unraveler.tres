@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Kit" format=3 uid="uid://bfj7yqjj1dxbb"]
+
+[ext_resource type="Script" path="res://engine/character/gear_action/action.gd" id="1_kqa37"]
+[ext_resource type="Script" path="res://engine/character/gear_passive/passive.gd" id="2_pkpsi"]
+[ext_resource type="Resource" path="res://content/gear/horus/weapons/mw_unraveler/action_unraveler.tres" id="2_spwwn"]
+[ext_resource type="Script" path="res://engine/character/gear/kit.gd" id="3_spwwn"]
+
+[resource]
+script = ExtResource("3_spwwn")
+actions = Array[ExtResource("1_kqa37")]([ExtResource("2_spwwn")])
+metadata/_custom_type_script = "uid://ckrv6mvs5q65e"

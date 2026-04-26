@@ -1,0 +1,9 @@
+[gd_resource type="Resource" format=3 uid="uid://bhbskyo0wqcp8"]
+
+[ext_resource type="Script" path="res://content/gear/horus/systems/ms_unhinge_chronology/buff_haste.gd" id="1_boysj"]
+
+[resource]
+script = ExtResource("1_boysj")
+triggers_on = Array[int]([3, 10])
+log_on_application = true
+metadata/_custom_type_script = "uid://cqrqkdgcf8mti"

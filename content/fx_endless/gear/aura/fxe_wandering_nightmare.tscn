@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cw7eas3ofgbi2"]
+
+[ext_resource type="Script" uid="uid://ck34knquhucbv" path="res://engine/gamemaster/effects_controller/fx_endless/fx_endless.gd" id="1_rig0p"]
+[ext_resource type="Script" uid="uid://8fip7605mtov" path="res://engine/gamemaster/effects_controller/fx_endless/node_animator.gd" id="2_v2sb1"]
+[ext_resource type="ArrayMesh" uid="uid://bo2et6a2kcq0f" path="res://assets/fx/shields/shield_cubedome.tres" id="3_v2sb1"]
+[ext_resource type="Shader" uid="uid://bc705d3c0k0go" path="res://assets/fx/shaders/shield_standard.gdshader" id="4_bonvr"]
+[ext_resource type="Texture2D" uid="uid://bgw8qp7thuwc2" path="res://assets/fx/noise/seamless_noise_256.png" id="5_1jm1w"]
+[ext_resource type="Shader" path="res://assets/fx/shaders/animated_shockwave_with_glitch.gdshader" id="6_v2sb1"]
+
+[sub_resource type="Curve" id="Curve_r6kdq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.06639004, 0.099610925), 0.0, 0.0, 0, 0, Vector2(0.95, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_f4733"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.18453608, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_6plld"]
+offsets = PackedFloat32Array(0, 0.17344497, 0.19617225, 0.39473686, 0.4138756, 0.4832536, 0.5095694, 0.57057416, 0.58732057, 0.8014354, 0.82416266, 1)
+colors = PackedColorArray(0.446777, 0.44677705, 0.4467771, 1, 0.18359044, 0.18359047, 0.18359038, 1, 0.35, 0.35, 0.35, 1, 0.6378432, 0.6378432, 0.6378431, 1, 0.35, 0.35, 0.35, 1, 0.17, 0.17, 0.17, 1, 0.35, 0.35, 0.35, 1, 0.5251013, 0.5251013, 0.5251012, 1, 0.48570347, 0.48570353, 0.48570347, 1, 0.76240367, 0.7624037, 0.7624035, 1, 0.35, 0.35, 0.35, 1, 0.7455808, 0.74558, 0.7455804, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g2ys5"]
+gradient = SubResource("Gradient_6plld")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s62n6"]
+render_priority = 0
+shader = ExtResource("4_bonvr")
+shader_parameter/albedo = Color(0.17196666, 0.06599999, 0.44, 1)
+shader_parameter/texture_albedo = SubResource("GradientTexture1D_g2ys5")
+shader_parameter/emission_energy = 0.75
+shader_parameter/transparency = 0.15
+shader_parameter/uv_scale = 1.0
+shader_parameter/use_screen_uv = false
+shader_parameter/uv_scroll_speed = Vector2(-0.1, 0)
+shader_parameter/proximity_color = Color(0.4692024, 0.2287256, 1.0774672, 1)
+shader_parameter/proximity_distance = 0.1
+shader_parameter/wobble_noise = ExtResource("5_1jm1w")
+shader_parameter/wobble_height_scale = 0.05
+shader_parameter/wobble_speed = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nfjaj"]
+render_priority = -1
+shader = ExtResource("6_v2sb1")
+shader_parameter/distortion_intensity = 0.0170000008075
+shader_parameter/noise_influence = 0.550000026125
+shader_parameter/shake_power = 0.010000000475
+shader_parameter/shake_rate = 0.00800000038
+shader_parameter/shake_speed = 0.010000000475
+shader_parameter/shake_block_size = 100.0
+shader_parameter/shake_color_rate = 0.002000000095
+
+[node name="Fxe" type="Node3D" unique_id=219570015]
+script = ExtResource("1_rig0p")
+
+[node name="NodeAnimator" type="Node3D" parent="." unique_id=1368143675]
+script = ExtResource("2_v2sb1")
+grow_in_time = 0.55
+autoscale_for_unit_and_burst = true
+burst = 2
+scales_x = SubResource("Curve_r6kdq")
+scales_y = SubResource("Curve_f4733")
+scales_z = SubResource("Curve_r6kdq")
+metadata/_custom_type_script = "uid://8fip7605mtov"
+
+[node name="shield_beveled" type="MeshInstance3D" parent="NodeAnimator" unique_id=415414119]
+mesh = ExtResource("3_v2sb1")
+surface_material_override/0 = SubResource("ShaderMaterial_s62n6")
+
+[node name="shield_beveled_distort" type="MeshInstance3D" parent="NodeAnimator" unique_id=1007731181]
+mesh = ExtResource("3_v2sb1")
+surface_material_override/0 = SubResource("ShaderMaterial_nfjaj")

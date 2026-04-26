@@ -1,0 +1,10 @@
+[gd_resource type="Resource" format=3 uid="uid://be4gi7r867nnt"]
+
+[ext_resource type="Script" path="res://content/frames/gms/mf_standard_pattern_i_everest/cp_hyperspec_fuel_injector/buff_power_up_boost.gd" id="1_67cqh"]
+
+[resource]
+script = ExtResource("1_67cqh")
+until = 2
+to = 21
+is_onetime = true
+hide_from_player = true

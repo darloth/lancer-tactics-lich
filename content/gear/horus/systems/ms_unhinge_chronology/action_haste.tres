@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ActionSystemApplyBuff" format=3 uid="uid://btmr817uyiqya"]
+
+[ext_resource type="Script" path="res://engine/character/buff/buff.gd" id="1_jw3pg"]
+[ext_resource type="Script" path="res://engine/character/gear_action/archtypes/action_system_apply_buff.gd" id="2_2oxtp"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_unhinge_chronology/buff_haste.tres" id="2_8ia5t"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_unhinge_chronology/buff_haste_free_boost.tres" id="3_8ia5t"]
+
+[resource]
+script = ExtResource("2_2oxtp")
+buffs = Array[ExtResource("1_jw3pg")]([ExtResource("2_8ia5t"), ExtResource("3_8ia5t")])
+apply_range = 0
+apply_to_sensors = true
+can_reapply = false
+action_type = 1
+is_tech = true
+metadata/_custom_type_script = "uid://cm50wdj5g8syg"

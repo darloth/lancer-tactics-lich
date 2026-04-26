@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="UnlockTree" format=3 uid="uid://ds0j250hy4l11"]
+
+[ext_resource type="Script" path="res://engine/character/unit_core/unlock_tree.gd" id="1_2vajh"]
+[ext_resource type="Texture2D" path="res://assets/frames/horus/mf_lich/mf_lich.png" id="1_4lnbh"]
+[ext_resource type="Script" path="res://engine/character/unit_core/frame.gd" id="2_av7fh"]
+[ext_resource type="Script" path="res://engine/character/gear/kit.gd" id="3_4lnbh"]
+[ext_resource type="Resource" path="res://content/gear/horus/weapons/mw_unraveler/mw_unraveler.tres" id="4_11cb2"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_wandering_nightmare/ms_wandering_nightmare.tres" id="5_11cb2"]
+[ext_resource type="Script" path="res://engine/character/unit_core/unlock_rank.gd" id="5_p131m"]
+[ext_resource type="Resource" path="res://content/frames/horus/mf_lich/mf_lich.tres" id="6_av7fh"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_unhinge_chronology/ms_unhinge_chronology.tres" id="8_11cb2"]
+
+[sub_resource type="Resource" id="Resource_lksep"]
+script = ExtResource("5_p131m")
+granted_gear = Array[ExtResource("3_4lnbh")]([ExtResource("4_11cb2"), ExtResource("5_11cb2")])
+metadata/_custom_type_script = "uid://ctb1pfqlfgmni"
+
+[sub_resource type="Resource" id="Resource_1o0x8"]
+script = ExtResource("5_p131m")
+granted_gear = Array[ExtResource("3_4lnbh")]([ExtResource("8_11cb2")])
+granted_frames = Array[ExtResource("2_av7fh")]([ExtResource("6_av7fh")])
+metadata/_custom_type_script = "uid://ctb1pfqlfgmni"
+
+[sub_resource type="Resource" id="Resource_txi5k"]
+script = ExtResource("5_p131m")
+metadata/_custom_type_script = "uid://ctb1pfqlfgmni"
+
+[resource]
+script = ExtResource("1_2vajh")
+icon = ExtResource("1_4lnbh")
+rank_1 = SubResource("Resource_lksep")
+rank_2 = SubResource("Resource_1o0x8")
+rank_3 = SubResource("Resource_txi5k")
+metadata/_custom_type_script = "uid://dq0jowvw37x6i"

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" format=3 uid="uid://d04a4o72ju6tr"]
+
+[ext_resource type="Script" path="res://content/gear/horus/systems/ms_wandering_nightmare/deployable/buff_wandering_nightmare_no_reactions.gd" id="1_duopb"]
+
+[resource]
+script = ExtResource("1_duopb")
+to = 20
+metadata/_custom_type_script = "uid://cqrqkdgcf8mti"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ActionSystemApplyBuff" format=3 uid="uid://b8mhi8e5uvap5"]
+
+[ext_resource type="Script" path="res://engine/character/buff/buff.gd" id="1_2jgpf"]
+[ext_resource type="Script" path="res://engine/character/gear_action/archtypes/action_system_apply_buff.gd" id="2_1rvsm"]
+[ext_resource type="Resource" path="res://content/gear/horus/systems/ms_unhinge_chronology/buff_slow.tres" id="2_ck13k"]
+
+[resource]
+script = ExtResource("2_1rvsm")
+buffs = Array[ExtResource("1_2jgpf")]([ExtResource("2_ck13k")])
+apply_range = 0
+apply_to_sensors = true
+save_to_avoid = true
+save_type = 2
+action_type = 1
+is_tech = true
+clears_hidden = true
+metadata/_custom_type_script = "uid://cm50wdj5g8syg"

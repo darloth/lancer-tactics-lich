@@ -1,0 +1,72 @@
+{
+	"name": "Lich",
+	"author": "Darloth",
+	"version": "0.1",
+	
+	"resource_groups": {
+		"res://engine/resource_groups/resgrp_buffs.tres": [
+			"res://content/gear/horus/systems/ms_wandering_nightmare/deployable/buff_wandering_nightmare_no_reactions.tres",
+			"res://content/gear/horus/weapons/mw_unraveler/buff_unraveled.tres"
+		],
+		"res://engine/resource_groups/resgrp_frames.tres": [
+			"res://content/frames/horus/mf_lich/mf_lich.tres",
+			"res://content/gear/horus/systems/ms_wandering_nightmare/deployable/dep_wandering_nightmare.tres"
+		],
+		"res://engine/resource_groups/resgrp_kits.tres": [
+			"res://content/gear/horus/weapons/mw_unraveler/mw_unraveler.tres",
+			"res://content/gear/horus/systems/ms_wandering_nightmare/ms_wandering_nightmare.tres"
+		],
+		"res://content/manufacturers/resgrp_man_horus.tres": [
+			"res://content/licenses/horus/li_lich.tres",
+			"res://content/gear/horus/weapons/mw_unraveler/mw_unraveler.tres",
+			"res://content/gear/horus/systems/ms_wandering_nightmare/ms_wandering_nightmare.tres",
+			"res://content/frames/horus/mf_lich/mf_lich.tres",
+			"res://content/gear/horus/systems/ms_wandering_nightmare/deployable/dep_wandering_nightmare.tres"
+		]
+	},
+	"licenses": {
+		"res://content/licenses/horus/li_lich.tres": {
+			"rank_1": {
+				"gear": [
+					"res://content/gear/horus/weapons/mw_unraveler/mw_unraveler.tres",
+					"res://content/gear/horus/systems/ms_wandering_nightmare/ms_wandering_nightmare.tres"
+				],
+				"frames": []
+			},
+			"rank_2": {
+				"gear": [
+					"res://content/gear/horus/systems/ms_unhinge_chronology/ms_unhinge_chronology.tres",
+				],
+				"frames": [
+					"res://content/frames/horus/mf_lich/mf_lich.tres"
+				]
+			},
+			"rank_3": {
+				"gear": [],
+				"frames": []
+			}
+		}
+	},
+	
+	"translate": {
+		"en": {
+			"gear.ms_wandering_nightmare.name": "Wandering Nightmare",
+	"gear.ms_wandering_nightmare.effect": "Generate a Blast 2 zone of distorted timeflow within SENSORS and line of sight that affects all characters other than you. Characters within the affected area cannot take reactions, and if they start their turn within it, they must succeed on a Systems save or take 2 Heat and become Slowed until the end of their next turn. This effect lasts until this action is taken again or the scene ends.",
+	"frame.dep_wandering_nightmare.name": "Wandering Nightmare",
+	"gear.buff_wandering_nightmare_no_reactions.name": "Wandering Nightmare",
+	"gear.buff_wandering_nightmare_no_reactions.effect": "Characters within the affected area cannot take reactions, and if they start their turn within it, they must succeed on a Systems save or take 2 Heat and become Slowed until the end of their next turn.",
+	"gear.mw_unraveler.name": "Unraveler",
+	"gear.mw_unraveler.effect": "If an attack from this weapon would not deal enough damage to destroy its target or cause it to take at least 1 structure damage, it instead only deals RELIABLE 2 damage, even on a hit.",
+	"gear.ms_unhinge_chronology.name": "Unhinge Chronology",
+	"gear.ms_unhinge_chronology.action_haste.name": "Haste",
+	"gear.ms_unhinge_chronology.action_haste.effect": "Choose a character within Sensors and line of sight. For the rest of this scene, or until they take damage, they may Boost 1/round as a free action during their turn.",
+	"gear.ms_unhinge_chronology.action_slow.name": "Slow",
+	"gear.ms_unhinge_chronology.sit_action_reroll_slow_save.name": "Roll Slow Save",
+	"gear.ms_unhinge_chronology.sit_action_reroll_slow_save.effect": "Roll a Systems save.  If successful, lose the effects of Slow (from Unhinge Chronology)",
+	"gear.ms_unhinge_chronology.action_slow.effect": "Choose a character within Sensors and line of sight. They must pass a Systems save or take 2 Heat, become Slowed, and become unable to take reactions. This effects ends if they take any amount of damage or make a successful Systems save as a quick action.",
+	"frame.mf_lich.name": "Lich",
+	"frame.mf_lich.flavor": "flavour",
+	"frame.mf_lich.flavor.short": "Time bending support",
+		}
+	}
+}
