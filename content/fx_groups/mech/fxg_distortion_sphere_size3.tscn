@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://b4dk14cht2wlp"]
+
+[ext_resource type="Script" uid="uid://bivnhhagha82d" path="res://engine/gamemaster/effects_controller/fx_group/fx_group.gd" id="1_liluy"]
+[ext_resource type="Shader" uid="uid://ciit26iib6xyb" path="res://assets/fx/shaders/animated_shockwave_with_glitch.gdshader" id="2_es0so"]
+[ext_resource type="Shader" uid="uid://44bt4c66dlko" path="res://assets/fx/shaders/glitch_fresnel_edge.gdshader" id="3_tffay"]
+
+[sub_resource type="Curve" id="Curve_d1ygo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.19585253, 1), 0.0, 0.0, 0, 0, Vector2(0.90553, 0.769663), -0.5689137, -0.5689137, 0, 0, Vector2(1, 0), -6.8713155, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_hvlgo"]
+curve = SubResource("Curve_d1ygo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w8ai7"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.75
+scale_max = 0.75
+scale_curve = SubResource("CurveTexture_hvlgo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onbok"]
+render_priority = -2
+shader = ExtResource("2_es0so")
+shader_parameter/distortion_intensity = 0.30000001425
+shader_parameter/noise_influence = 1.0
+shader_parameter/shake_power = 0.094000004465
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0000002375
+shader_parameter/shake_block_size = 7.8190003239025
+shader_parameter/shake_color_rate = 0.190000009025
+shader_parameter/fresnel_edge = true
+shader_parameter/fresnel_amount = 3.9200001862
+shader_parameter/fresnel_pow = 10.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_1nbdj"]
+material = SubResource("ShaderMaterial_onbok")
+radius = 3.3
+height = 6.6
+radial_segments = 32
+rings = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwvrx"]
+render_priority = 5
+shader = ExtResource("3_tffay")
+shader_parameter/shake_power = 0.010000000475
+shader_parameter/shake_rate = 0.72800003458
+shader_parameter/shake_speed = 5.0000002375
+shader_parameter/shake_block_size = 100.0
+shader_parameter/shake_color_rate = 0.01
+shader_parameter/fresnel_amount = 3.9200001862
+shader_parameter/fresnel_pow = 10.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_tx4mw"]
+material = SubResource("ShaderMaterial_mwvrx")
+radius = 2.4
+height = 4.8
+radial_segments = 32
+rings = 16
+
+[node name="DistortionSphere" type="Node3D" unique_id=862343065]
+script = ExtResource("1_liluy")
+start_delay = 0.2
+preamble_mode = 2
+preamble_duration = 1.0
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="." unique_id=817594587]
+event_name = "event:/sfx/character/actions/teleport_out"
+event_guid = "{44fd240f-f0ea-4d02-b6f7-8f205291d490}"
+
+[node name="Backpass" type="GPUParticles3D" parent="." unique_id=578699801]
+cast_shadow = 0
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+visibility_aabb = AABB(-6, -6, -6, 12, 12, 12)
+process_material = SubResource("ParticleProcessMaterial_w8ai7")
+draw_pass_1 = SubResource("SphereMesh_1nbdj")
+
+[node name="Frontpass" type="GPUParticles3D" parent="." unique_id=221518764]
+cast_shadow = 0
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+visibility_aabb = AABB(-6, -6, -6, 12, 12, 12)
+process_material = SubResource("ParticleProcessMaterial_w8ai7")
+draw_pass_1 = SubResource("SphereMesh_tx4mw")
