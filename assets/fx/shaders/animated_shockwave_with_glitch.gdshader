@@ -12,8 +12,17 @@ uniform float shake_speed : hint_range(0.0, 20.0) = 5.0;
 uniform float shake_block_size : hint_range(1.0, 100.0) = 30.5;
 uniform float shake_color_rate : hint_range(0.0, 1.0) = 0.01;
 
+uniform bool fresnel_edge = false;
+uniform float fresnel_amount : hint_range(0.0, 10.0) = 0.1;
+uniform float fresnel_pow : hint_range(0.0, 10.0) = 0.1;
+
 float randomvec2(vec2 uv) {
 	return fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453123);
+}
+
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
 }
 
 float randomf(float seed) {
@@ -51,6 +60,10 @@ void fragment() {
 	distorted_color.r = texture(screen_texture, uv + noise_offset + uv_offset + vec2(shake_color_rate, 0.0)).r;
 	distorted_color.g = texture(screen_texture, uv + noise_offset + uv_offset).g;
 	distorted_color.b = texture(screen_texture, uv + noise_offset + uv_offset + vec2(-shake_color_rate, 0.0)).b;
+	
+	float fresnel_alpha = clamp(pow(1.0 - fresnel(fresnel_amount, NORMAL, VIEW), fresnel_pow), 0.0, 1.0);
+	if(fresnel_edge)
+		distorted_color.a *= fresnel_alpha;
 	
 	ALBEDO = distorted_color.rgb;
 	ALPHA = distorted_color.a;
