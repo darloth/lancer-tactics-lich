@@ -1,14 +1,20 @@
 extends ActionAttackWeapon
 
+var size_fxgs = [
+	preload("res://content/fx_groups/mech/fxg_distortion_sphere_size1.tscn"),
+	preload("res://content/fx_groups/mech/fxg_distortion_sphere_size2.tscn"),
+	preload("res://content/fx_groups/mech/fxg_distortion_sphere_size3.tscn")
+]
 
-# Plan for Unraveler:
-# Before the attack happens - record the current HP of target into a buff
-# Apply that buff, with a duration of POST damage
-# If the target is structured, remove the buff
-# If the buff is being removed due to timeout, reset the HP of the target to that value and then just apply 2 flat damage.
+func run_attack_effects(activation: EventCore, specific: SpecificAction, direct_target_tiles: Array[Vector2i], all_target_tiles: Array[Vector2i], all_target_units: Array[Unit]) -> void :
+	camera_bus.show_all_tiles(specific.unit.occupied_tiles(), true)
+	await X.delay(CameraTiming.ACTION_ANTICIPATION).timeout
+	if activation.abort_without_unit(specific.unit): return
+	if activation.abort_without_unit(all_target_units[0]): return
+	var main_target_size = all_target_units[0].get_size()
+	var appropriate_fxg_index = clampi(main_target_size - 1, 0, 2)
 
-
-#func get_damage_for_attack(context: Context, attacked_unit: Unit, damage_data: RefCounted, attack_roll: AttackRoll) -> Dictionary:
-	#var unmodified_damage = super.get_damage_for_attack(context, attacked_unit, damage_data, attack_roll)
-	#var target_hp := attacked_unit.core.current.health
-	#return unmodified_damage
+	await CommonActionUtil.run_attack_and_target_fx(
+		get_attack_fxg(specific.gear, specific.action), specific.unit, 
+		size_fxgs[appropriate_fxg_index], all_target_units)
+	if activation.abort_without_unit(specific.unit): return
